@@ -2,7 +2,13 @@
 Keras
 Sphinx
 Theano
+aeon
 compat-llvm-soname4
 darktable
+libdnf
 llvm
+mypy
+numpydoc
 pytest-cov
+satyr
+spyder
