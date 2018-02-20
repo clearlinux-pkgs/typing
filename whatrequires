@@ -8,7 +8,7 @@ darktable
 libdnf
 llvm
 mypy
+nbsphinx
 numpydoc
 pytest-cov
 satyr
-spyder
