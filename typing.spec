@@ -4,19 +4,22 @@
 #
 Name     : typing
 Version  : 3.6.4
-Release  : 16
+Release  : 17
 URL      : http://pypi.debian.net/typing/typing-3.6.4.tar.gz
 Source0  : http://pypi.debian.net/typing/typing-3.6.4.tar.gz
 Summary  : Type Hints for Python
 Group    : Development/Tools
 License  : Python-2.0
 Requires: typing-python3
+Requires: typing-license
 Requires: typing-python
 BuildRequires : pbr
 BuildRequires : pip
-
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 
 %description
 This is a backport of the standard library typing module to Python
@@ -35,6 +38,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the typing package.
+
+
+%package license
+Summary: license components for the typing package.
+Group: Default
+
+%description license
+license components for the typing package.
 
 
 %package python
@@ -63,13 +74,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519143886
+export SOURCE_DATE_EPOCH=1530369293
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1519143886
+export SOURCE_DATE_EPOCH=1530369293
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/typing
+cp LICENSE %{buildroot}/usr/share/doc/typing/LICENSE
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -82,6 +95,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/typing/LICENSE
 
 %files python
 %defattr(-,root,root,-)
