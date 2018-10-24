@@ -4,7 +4,7 @@
 #
 Name     : typing
 Version  : 3.6.6
-Release  : 22
+Release  : 23
 URL      : https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz
 Summary  : Type Hints for Python
