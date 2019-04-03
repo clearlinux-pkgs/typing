@@ -4,36 +4,24 @@
 #
 Name     : typing
 Version  : 3.6.6
-Release  : 25
+Release  : 26
 URL      : https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz
 Summary  : Type Hints for Python
 Group    : Development/Tools
 License  : Python-2.0
-Requires: typing-python3
-Requires: typing-license
-Requires: typing-python
-BuildRequires : buildreq-distutils23
+Requires: typing-license = %{version}-%{release}
+Requires: typing-python = %{version}-%{release}
+Requires: typing-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-This is a backport of the standard library typing module to Python
-        versions older than 3.5.  (See note below for newer versions.)
-        
-        Typing defines a standard notation for Python function and variable
-        type annotations. The notation can be used for documenting code in a
-        concise, standard format, and it has been designed to also be used by
-        static and runtime type checkers, static analyzers, IDEs and other
-        tools.
-
-%package legacypython
-Summary: legacypython components for the typing package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the typing package.
-
+===================
+PEP 484: Type Hints
+===================
+.. image:: https://badges.gitter.im/python/typing.svg
+:alt: Chat at https://gitter.im/python/typing
+:target: https://gitter.im/python/typing?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 %package license
 Summary: license components for the typing package.
@@ -46,7 +34,7 @@ license components for the typing package.
 %package python
 Summary: python components for the typing package.
 Group: Default
-Requires: typing-python3
+Requires: typing-python3 = %{version}-%{release}
 
 %description python
 python components for the typing package.
@@ -69,17 +57,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535824687
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554329483
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1535824687
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/typing
-cp LICENSE %{buildroot}/usr/share/doc/typing/LICENSE
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/package-licenses/typing
+cp LICENSE %{buildroot}/usr/share/package-licenses/typing/LICENSE
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -87,13 +74,9 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
-
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/typing/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/typing/LICENSE
 
 %files python
 %defattr(-,root,root,-)
