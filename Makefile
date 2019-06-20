@@ -1,5 +1,5 @@
 PKG_NAME := typing
-URL = https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz
+URL = https://files.pythonhosted.org/packages/60/e8/944bd083411be12c6d46d400a06744a5a85ad27d3c6e487a5da0d58950cc/typing-3.7.4.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

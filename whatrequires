@@ -1,7 +1,12 @@
 # This file contains recursive sources that require this package
 Sphinx
 aiohttp-cors
+astroid
+cmd2
 deprecated-Sphinx
+fs
+msm
+msrest
 mypy_extensions
 pyhs100
 zeroconf
