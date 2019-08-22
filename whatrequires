@@ -2,9 +2,11 @@
 Sphinx
 aiohttp-cors
 astroid
-cmd2
 deprecated-Sphinx
+flake8
 fs
+koji
+libCharon
 msm
 msrest
 mypy_extensions
