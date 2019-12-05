@@ -4,7 +4,7 @@
 #
 Name     : typing
 Version  : 3.7.4.1
-Release  : 31
+Release  : 32
 URL      : https://files.pythonhosted.org/packages/67/b0/b2ea2bd67bfb80ea5d12a5baa1d12bda002cab3b6c9b48f7708cd40c34bf/typing-3.7.4.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/67/b0/b2ea2bd67bfb80ea5d12a5baa1d12bda002cab3b6c9b48f7708cd40c34bf/typing-3.7.4.1.tar.gz
 Summary  : Type Hints for Python
