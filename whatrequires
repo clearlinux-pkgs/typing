@@ -1,14 +1,14 @@
 # This file contains recursive sources that require this package
 Sphinx
 aiohttp-cors
-astroid
-deprecated-Sphinx
+apache-libcloud
 flake8
-fs
-koji
 libCharon
-msm
 msrest
 mypy_extensions
+ngraph
+onnx
 pyhs100
+pytorch
+typing_extensions
 zeroconf
